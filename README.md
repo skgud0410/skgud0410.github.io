@@ -12,4 +12,4 @@
 
 
 
-<img src="https://skgud0410.github.io/images/olang-banner01.jpg" alt="olang-banner01">
+<img src="https://skgud0410.github.io/images/img-profile.jpg" alt="img-profile">
