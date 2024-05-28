@@ -15,10 +15,12 @@
         :root{
             --text01:#000;
             font-family: 'retro'; font-weight: 400; font-size: 30px; color: var(--text01);
+            scroll-behavior: smooth;
         }
 
         
-
+        #wrap{background: #d3ecff;}
+       
         /* header 스타일 */
         #header{position: fixed; width: 100%;
             margin: 0 auto; padding: 20px 0; z-index: 2;
@@ -27,28 +29,51 @@
         #header .container nav{display: grid; grid-template-columns: 30% 70%;}
         #header nav ul{display: flex;}
         #header nav ul:last-child{justify-content: end;}
-        #header li{padding: 10px 40px; font-size: 35px;}
-
+        #header li{padding: 10px 40px; font-size: 35px; color: white;}
+        #header .heart{background: url(./images/heart.png) no-repeat; background-size: contain;
+            text-indent: -9999px;
+            display: block;
+            width: 621px;
+            height: 56px;}
         /* main 스타일 */
-        main{background: lightgoldenrodyellow;}
+        
 
         /* home 스타일 */
-        #home{background: url(./images/);}
+        #home{background: #d3ecff;}
         #home.container{display: block; background: url(./images/port01-bg.png) no-repeat center top; 
             background-size: contain; width: 100%; height: 900PX;}
         .home-tit{margin: 0 auto; text-align: center;}
-        .back01{position: relative; width: 90%; height: 90%; margin: 0 auto; padding-top: 30px;}
-        .back03{position: absolute; left: 0; top: 0; right: 0;}
-        #home h1{font-size: 100px; position: absolute; top: 25%; left: 50%; transform: translateX(-50%);}
-        #home .button{position: absolute;left: 50%; transform: translateX(-50%); top: 80%; 
+        .back01{position: relative; width: 85%; height: 85%; margin: 0 auto; padding-top: 30px;}
+        .back03{position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            right: 0;
+            width: 96%;}
+        #home h1{font-size: 120px; position: absolute; top: 25%; left: 50%; 
+            transform: translateX(-50%); color: white;}
+        #home .button{position: absolute;left: 50%; transform: translateX(-50%) scale(1); top: 80%; 
             width: 200px; height: 54px; background: url(./images/button.png) no-repeat center; 
-            background-size: contain;cursor: pointer; padding-top: 15px;}
+            background-size: contain;cursor: pointer; padding-top: 15px; animation: buttonMove 1.5s  infinite}
         #home a{text-align: center; font-size: 30px; color: #fff;}
-        .back02{width: 800px; position: absolute; top: 50%; left: 50%; 
+        .back02{width: 800px; position: absolute; top: 25%; left: 50%; 
             transform: translateX(-50%);}
         
+        @keyframes buttonMove{
+            0%{
+                transform: translateX(-50%) scale(1);
+            }
+            50%{
+                transform: translateX(-50%) scale(1.2);
+            }
+            100%{
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
         /* about-me 스타일 */
-        #about-me{margin-top: 300px; height: 950PX;}
+        #about-me{margin-top: 300px; height: 950PX; background:#d3ecff;
+            color: #001352;}
         #about-me .container{max-width: 1612px; margin: 0 auto; padding-top: 194px;}
         #about-me .aboutme-grid{display: grid; grid-template-columns: 1fr 1fr; 
            column-gap: 164px; margin: 0 auto;}
@@ -56,21 +81,23 @@
         .about-sec01 h1{font-size: 60px; margin-bottom: 20px;}
         .icon ul{padding-top: 22px;}
         .icon ul li{display: flex; justify-content: space-between; text-align: center;
-            padding-bottom: 52px; font-size: 22px; align-items: center;}
+            padding-bottom: 52px; font-size: 20px; align-items: center;}
         .icon ul li .img-box{width: 35px; height: 35px;}
         .skill-icon{display: flex;}
         .skill-icon .img-box{padding-right: 30px;}
         .about-sec02 .txt{display: flex; font-size: 22px; align-items: center;}
         .about-sec02 .txt p{padding-right: 50px;}
         .about-sec02 .txt p:nth-child(2n){padding-right: 0;}
-        .about-sec02 .txt01{font-size: 24px;}
+        .about-sec02 .txt01{font-size: 20px;}
         .about-sec02 h3{padding-bottom: 10px;}
         .about-sec02 .sec02{margin-bottom: 70px;}
-        .introduction p{font-size: 22px;}
+        .introduction p{font-size: 20px;}
+        
 
         /* skills 스타일 */
-        #skills{height: 950PX; padding-top: 270px;}
-        #skills h2{margin: 0 auto; text-align: center; margin-bottom: 50px;
+        #skills{height: 950PX; padding-top: 270px; background:#d3ecff;
+            color: #001352;}
+        #skills h2{margin: 0 auto; text-align: center; margin-bottom: 140px;
             font-size: 70px;}
         #skills .skill-grid{display: grid; grid-template-columns: 1fr 1fr; column-gap: 224px;
             margin: 0 240px; max-width: 1140px;}
@@ -80,35 +107,70 @@
             background:rgba(0, 0, 0, 10%);}
        
         #skills p span{position: absolute; left: 0; top: 0; right: 0; bottom: 0; 
-            text-align: center; font-size: 22px; z-index: 10;}
-         #skills p::after{content: ''; display: block;width: 80%; position: absolute; left: 0; 
-         top: 0; right: 0; bottom: 0; background: lightblue; border-radius: 50px;}
-        
+            text-align: center; font-size: 22px; z-index: 10; color: white;}
+         #skills p::after{content: ''; display: block;width: 0%; position: absolute; left: 0;transition:0.3s; 
+         top: 0; right: 0; bottom: 0; background: rgb(73, 104, 163); border-radius: 50px;}
+         #skills p#p0::after{
+            transition-delay: 0s;
+         }
+         #skills.active p#p0::after{
+            width:70%;
+         }
+         #skills p#p1::after{
+            transition-delay: 0.3s;
+         }
+         #skills.active p#p1::after{
+            width:70%;
+         }
+         #skills p#p2::after{
+            transition-delay: 0.6s;
+         }
+         #skills.active p#p2::after{
+            width:60%;
+         }
+         #skills p#p3::after{
+            transition-delay: 0.9s;
+         }
+         #skills.active p#p3::after{
+            width:90%;
+         }
+         #skills p#p4::after{
+            transition-delay: 1.2s;
+         }
+         #skills.active p#p4::after{
+            width:80%;
+         }
+         #skills p#p5::after{
+            transition-delay: 1.5s;
+         }
+         #skills.active p#p5::after{
+            width:80%;
+         }
        
         
 
         /* project-web 스타일 */
-        #project-web{height: 950PX; padding-top: 20px;}
-        #project-web .container{display: grid; grid-template-columns: repeat(2,1fr);
+        #project-web{height: 950PX; padding-top: 20px; background: #d3ecff;}
+        #project-web .container{display: grid; grid-template-columns: repeat(2,1fr);color: #001352;
             column-gap: 74px; margin-left: 200px; padding-top: 270px;}
         #project-web img{width: 80%;}
         #project-web h2{font-size: 50px; margin-bottom: 20px;}
         #project-web button{width: 132px; height: 40px; background: transparent;
-            border: 2px solid black; font-size: 22px;}
-        #project-web button:hover{background: white; font-weight: 700;}
+            border: transparent; background: white; color: #001352; border: 2px solid #001352; font-weight: 700; font-size: 22px;}
+        #project-web button:hover{background:#001352; color: white;}
         #project-web button:first-child{width: 336px;}
         .web .txt{display: grid; grid-template-columns: 15% 85%; 
             grid-template-rows: 1fr 1fr 1fr 1fr; margin-top: 70px; align-items: center;
             font-size: 22px; margin-bottom: 20px;}
         .web .txt h3, .web .txt p{margin-bottom: 10px;}
-
+        .txt p{font-family: 'kor';}
 
         /* project-des 스타일 */
-        #project-des{height: 1600px;}
+        #project-des{height: 1600px; color: #001352; background: #d3ecff;}
         #project-des .container{width: 1000px; margin: 0 auto; padding-top: 200px;}
-        #project-des .container h2{font-size: 50px; text-align: center;}
+        #project-des .container h2{font-size: 50px; text-align: center;     margin-bottom: 30px;}
         #project-des .tab-nav {width: 100%; max-width: 380px; margin: 40px auto 30px; 
-            border-radius: 30px; padding: 16px 32px;background: rgba(204, 204, 255, 0.7); display: flex; 
+            border-radius: 30px; padding: 16px 48px;background: white; display: flex; 
             justify-content: space-between; font-size: 22px;}
         .port-items{display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;}
         #project-des .tab-nav li{cursor: pointer;}
@@ -116,17 +178,32 @@
             color: var(--line-color);}
         #project-des .port-items li{overflow: hidden;}
         #project-des .port-items li img{filter: grayscale(1);transition: 0.3s;}
-        #project-des .port-items li:hover img{filter: grayscale(0); transform: scale(1.1);} 
-
+        #project-des .port-items li:hover img{filter: grayscale(0); transform: scale(1.1);}
+        
         
         /* contact 스타일 */
-        #contact{height: 950px; background: lightblue; padding-top: 270px;}
+        #contact{height: 950px; background:url(./images/sec-back.jpg); padding-top: 270px; color: #001352;}
         #contact .container{width: 1200px; margin: 0 auto;}
         #contact h2{font-size: 70px; text-align: center; margin-bottom: 130px;}
         #contact h3{text-align: center; margin-bottom: 20px;}
         #contact p{font-size: 22px; text-align: center;margin-bottom: 10px;}
 
+        .kor{font-family: 'kor';}
+        .back02 img{animation : up-down 2s infinite;}
+        #home>button{
+            -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+                    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+        @keyframes up-down{
+            0%{
+                transform: translatey(0);
+            }
+            50%{
+                transform: translatey(-60px);
+            }
+            
 
+        }
     
     </style>
 </head>
@@ -136,13 +213,13 @@
             <div class="container">
                 <nav>
                     <ul>
-                        <li><a href="#">HOME</a></li>
+                        <li><a href="#home" class="heart">HOME</a></li>
                     </ul>
                     <ul>
-                        <li><a href="#">ABOUT ME</a></li>
-                        <li><a href="#">SKILLS</a></li>
-                        <li><a href="#">PROJECT-WEB</a></li>
-                        <li><a href="#">PROJECT-DESIGN</a></li>
+                        <li><a href="#about-me"><span style="text-shadow: -3px 0 #444, 0 3px #444, 3px 0 #444, 0 -3px #444;">ABOUT ME</span></a></li>
+                        <li><a href="#skills"><span style="text-shadow: -3px 0 #444, 0 3px #444, 3px 0 #444, 0 -3px #444;">SKILLS</span></a></li>
+                        <li><a href="#project-web"><span style="text-shadow: -3px 0 #444, 0 3px #444, 3px 0 #444, 0 -3px #444;">PROJECT-WEB</span></a></li>
+                        <li><a href="#project-des"><span style="text-shadow: -3px 0 #444, 0 3px #444, 3px 0 #444, 0 -3px #444;">PROJECT-DESIGN</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -152,7 +229,7 @@
                 <div class="container">
                     <div class="home-tit">
                     <div class="back01 img-box">
-                        <img src="./images/port-back01.jpg" alt="back01">
+                        <img src="./images/port-back.jpg" alt="back01">
                     </div>
                     <div class="back02 img-box">
                         <img src="./images/me.png" alt="me">
@@ -160,8 +237,8 @@
                     <div class="back03 img-box">
                         <img src="./images/port01-bg.png" alt="back02">
                     </div>
-                    <h1>PORTFOLIO</h1>
-                    <div class="button"><a href="#">START</a></div>
+                    <h1><span style="text-shadow: -6px 0 hsl(41, 100%, 71%), 0 6px hsl(41, 100%, 71%), 6px 0 #e4b54f, 0 -6px #e4b54f;">PORTFOLIO</span></h1>
+                    <div class="button"><a href="#about-me">START</a></div>
                     
                 </div>
                 </div>
@@ -180,7 +257,7 @@
                                     <ul>
                                         <li>
                                             <div class="img-box"><img src="./images/ico-smile.svg" alt="name"></div>
-                                            <p>김나형</p>
+                                            <p class="kor">김나형</p>
                                         </li>
                                         <li>
                                             <div class="img-box"><img src="./images/ico-star.svg" alt="birthday"></div>
@@ -199,7 +276,7 @@
                             </div> 
                             <div class="introduction">
                                 <h3>ABOUT ME</h3>
-                                <P>
+                                <P class="kor">
                                     저는 0000, 0000한 성격을 가지고 있으며,
                                     ----하는 것을 좋아합니다.
                                 </P>
@@ -209,42 +286,42 @@
                             <div class="sec02 sec02-edu">
                                 <h3>EDUCATION</h3>
                                 <div class="txt edu01">
-                                    <p class="txt01">2016. 03.02  ~ 2019. 02.07</p>
-                                    <p>한국주얼리고</p>
+                                    <p class="txt01 kor">2016. 03.02  ~ 2019. 02.07</p>
+                                    <p class="kor">한국주얼리고</p>
                                 </div>
                                 <div class="txt edu02">
-                                    <p class="txt01">2019. 03.02  ~ 2021. 02.07</p>
-                                    <p>명지전문대학</p>
+                                    <p class="txt01 kor">2019. 03.02  ~ 2021. 02.07</p>
+                                    <p class="kor">명지전문대학</p>
                                 </div>
                                 <div class="txt edu03">
-                                    <p class="txt01">2024. 01.02  ~ 2024. 05.28</p>
-                                    <p>웹표준 반응형 웹디자인&웹퍼블리셔 과정</p>
+                                    <p class="txt01 kor">2024. 01.02  ~ 2024. 05.28</p>
+                                    <p class="kor">웹표준 반응형 웹디자인&웹퍼블리셔 과정</p>
                                 </div>
                             </div>
                             <div class="sec02 sec02-license">
                                 <h3>LICENSE</h3>
                                 <div class="txt license01">
-                                    <p class="txt01">2017.6.29</p>
-                                    <p>ITQ 아래한글 A등급</p>
+                                    <p class="txt01 kor">2017.06.29</p>
+                                    <p class="kor">ITQ 아래한글 A등급</p>
                                 </div>
                                 <div class="txt license02">
-                                    <p class="txt01">2018.07.06</p>
-                                    <p>귀금속 가공 기능사</p>
+                                    <p class="txt01 kor">2018.07.06</p>
+                                    <p class="kor">귀금속 가공 기능사</p>
                                 </div>
                                 <div class="txt license03">
-                                    <p class="txt01">2018.07.13</p>
-                                    <p>GTQ 그래픽 기술자격 1급</p>
+                                    <p class="txt01 kor">2018.07.13</p>
+                                    <p class="kor">GTQ 그래픽 기술자격 1급</p>
                                 </div>
                             </div>
                             <div class="sec02 sec02-work">
                                 <h3>WORK</h3>
                                 <div class="txt work01">
-                                    <p class="txt01">2021. 03.01  ~ 2022. 02.10</p>
-                                    <p>효성TNS atm 개발팀 사무보조</p>
+                                    <p class="txt01 kor">2021. 03.01  ~ 2022. 02.10</p>
+                                    <p class="kor">효성TNS atm 개발팀 사무보조</p>
                                 </div>
                                 <div class="txt work02">
-                                    <p class="txt01">2022. 11.20  ~ 2023. 03.31</p>
-                                    <p>프리죤 신라면세점 보안 & 데스크 업무</p>
+                                    <p class="txt01 kor">2022. 11.20  ~ 2023. 03.31</p>
+                                    <p class="kor">프리죤 신라면세점 보안 & 데스크 업무</p>
                                 </div>
                             </div>
                         </div>
@@ -257,39 +334,32 @@
                     <div class="skill-grid">
                         <ul>
                             <li>
-                                <div class="img-box"><img src="./images/ico-ps.svg" alt="ico-ps"></div>
-                                <p><span>90%</span></p>
+                                <div class="img-box"><img src="./images/html.png" alt="html"></div>
+                                <p id="p0"><span>70%</span></p>
                             </li>
                             <li>
-                                <div class="img-box"><img src="./images/ico-ps.svg" alt="ico-ps"></div>
-                                <p><span>90%</span></p>
+                                <div class="img-box"><img src="./images/css.png" alt="css"></div>
+                                <p id="p1"><span>70%</span></p>
                             </li>
                             <li>
-                                <div class="img-box"><img src="./images/ico-ps.svg" alt="ico-ps"></div>
-                                <p><span>90%</span></p>
-                            </li>
-                            <li>
-                                <div class="img-box"><img src="./images/ico-ps.svg" alt="ico-ps"></div>
-                                <p><span>90%</span></p>
+                                <div class="img-box"><img src="./images/javaScript.jpg" alt="javascript"></div>
+                                <p id="p2"><span>60%</span></p>
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <div class="img-box"><img src="./images/ico-ps.svg" alt="ico-ps"></div>
-                                <p><span>90%</span></p>
+                                <div class="img-box"><img src="./images/photoshop.png" alt="photoshop"></div>
+                                <p id="p3"><span>90%</span></p>
                             </li>
                             <li>
-                                <div class="img-box"><img src="./images/ico-ps.svg" alt="ico-ps"></div>
-                                <p><span>90%</span></p>
+                                <div class="img-box"><img src="./images/illustrator.png" alt="illustrator"></div>
+                                <p id="p4"><span>80%</span></p>
                             </li>
                             <li>
-                                <div class="img-box"><img src="./images/ico-ps.svg" alt="ico-ps"></div>
-                                <p><span>90%</span></p>
+                                <div class="img-box"><img src="./images/github.png" alt="github"></div>
+                                <p id="p5"><span>80%</span></p>
                             </li>
-                            <li>
-                                <div class="img-box"><img src="./images/ico-ps.svg" alt="ico-ps"></div>
-                                <p><span>90%</span></p>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -311,7 +381,7 @@
                             <h3>SKILL</h3>
                             <P>HTML, CSS, Photoshop, illustrator, jquery</P>
                         </div>
-                        <button><a href="https://skgud0410.github.io/HOLLYS/index.html">결과보기</a></button>
+                        <button><a href="https://skgud0410.github.io/hollys/index.html">결과보기</a></button>
                     </div>
                 </div>
             </section>
@@ -332,7 +402,7 @@
                             <h3>SKILL</h3>
                             <P>HTML, CSS, Photoshop, illustrator, jquery</P>
                         </div>
-                        <button><a href="#">결과보기</a></button>
+                        <button><a href="https://skgud0410.github.io/megabox/">결과보기</a></button>
                     </div>
                 </div>
             </section>
@@ -341,11 +411,11 @@
                     <div class="img-box"><img src="./images/shakeshack-mockup-s-size.png" alt="hollys"></div>
                     <div class="web">
                         <div class="tit">
-                            <h2>PROJECT: <span>SHAKE SHACK</span></h2>
+                            <h2>RE DESIGN: <span>SHAKE SHACK</span></h2>
                         </div>
                         <div class="txt">
                             <h3>TYPE</h3>
-                            <P>반응형</P>
+                            <P>웹</P>
                             <h3>WORK</h3>
                             <P>개인 100%</P>
                             <h3>PAGE</h3>
@@ -356,13 +426,13 @@
                         <div class="button-list">
                             <button><a href="#">와이어프레임 / 프로토타입 보기</a></button>
                             <button><a href="#">시안서 보기</a></button>
-                            <button><a href="#">결과보기</a></button>
+                            <button><a href="https://skgud0410.github.io/shakeshack/">결과보기</a></button>
                         </div>
                             
                     </div>
                 </div>
             </section>
-            <section id="project-web" class="web04">
+            <!-- <section id="project-web" class="web04">
                 <div class="container">
                     <div class="img-box"><img src="./images/hollys-mockup.png" alt="hollys"></div>
                     <div class="web">
@@ -385,7 +455,7 @@
                             <button><a href="#">결과보기</a></button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </section>
             <section id="project-web" class="web05">
                 <div class="container">
@@ -415,22 +485,22 @@
             <section class="port-sec" id="project-des">
                 <div class="container">
                     <h2>design</h2>
-                    <ul class="tab-nav">
+                    <!-- <ul class="tab-nav">
                         <li class="active">all</li>
-                        <li>design</li>
-                        <li>icons</li>
-                        <li>publishing</li>
-                    </ul>
+                        <li>sns</li>
+                        <li>banner</li>
+                        <li>etc</li>
+                    </ul> -->
                     <ul class="port-items">
-                        <li class="all design" title="포트폴리오01"><a href="./detail.html"><img src="./images/sns-banner01.jpg" alt="port01"></a></li>
-                        <li class="all design" title="포트폴리오02"><a href="./detail.html"><img src="./images/sns-banner02.jpg" alt="port02"></a></li>
-                        <li class="all publishing" title="포트폴리오03"><a href="./detail.html"><img src="./images/sns-banner03.jpg" alt="port03"></a></li>
-                        <li class="all publishing" title="포트폴리오04"><a href="./detail.html"><img src="./images/sns-banner01.jpg" alt="port04"></a></li>
-                        <li class="all design" title="포트폴리오05"><a href="./detail.html"><img src="./images/sns-banner02.jpg" alt="port05"></a></li>
-                        <li class="all icons" title="포트폴리오06"><a href="./detail.html"><img src="./images/sns-banner03.jpg" alt="port06"></a></li>
-                        <li class="all icons mb0" title="포트폴리오07"><a href="./detail.html"><img src="./images/sns-banner01.jpg" alt="port07"></a></li>
-                        <li class="all design mb0" title="포트폴리오08"><a href="./detail.html"><img src="./images/sns-banner02.jpg" alt="port08"></a></li>
-                        <li class="all publishing" title="포트폴리오09"><a href="./detail.html"><img src="./images/sns-banner03.jpg" alt="port09"></a></li>
+                        <li class="all sns" title="포트폴리오01"><a href="./detail.html"><img src="./images/cup.jpg" alt="port01"></a></li>
+                        <li class="all sns" title="포트폴리오02"><a href="./detail.html"><img src="./images/memo.jpg" alt="port02"></a></li>
+                        <li class="all sns" title="포트폴리오03"><a href="./detail.html"><img src="./images/sns-banner03.jpg" alt="port03"></a></li>
+                        <li class="all sns" title="포트폴리오04"><a href="./detail.html"><img src="./images/sns-banner01.jpg" alt="port04"></a></li>
+                        <li class="all sns" title="포트폴리오05"><a href="./detail.html"><img src="./images/sns-banner02.jpg" alt="port05"></a></li>
+                        <li class="all sns" title="포트폴리오06"><a href="./detail.html"><img src="./images/sns-banner03.jpg" alt="port06"></a></li>
+                        <li class="all l-banner l-banner01" title="포트폴리오07"><a href="./detail.html"><img src="./images/sns-banner01.jpg" alt="port07"></a></li>
+                        <li class="all l-banner" title="포트폴리오08"><a href="./detail.html"><img src="./images/sns-banner02.jpg" alt="port08"></a></li>
+                        <li class="all etc" title="포트폴리오09"><a href="./detail.html"><img src="./images/cup.jpg" alt="port09"></a></li>
                     </ul>
                 </div>
             </section>
@@ -446,18 +516,26 @@
     </section>
   
     <script>
-    //header 스크롤 이벤트
-    //    $(window).scroll(function(){
-    //         let winScrTop = $(window).scrollTop();
-    //         // console.log(`scrollTop = ${winScrTop}`);
-    //         let aboutTop = $('#about-me').position().top;
-    //         // console.log(aboutTop)
-    //         if(winScrTop>=aboutTop){
-    //             $('#header').slideDown();
-    //         }else{
-    //             $('#header').slideUp();
-    //         }
-    //    })
+    //header, skills 스크롤 이벤트
+       $(window).scroll(function(){
+            let winScrTop = $(window).scrollTop();
+            // console.log(`scrollTop = ${winScrTop}`);
+            let aboutTop = $('#about-me').position().top;
+            let skillTop = $('#skills').position().top;
+            // console.log(aboutTop)
+            if(winScrTop>=aboutTop){
+                $('#header').slideDown();
+            }else{
+                $('#header').slideUp();
+            }
+            if(winScrTop>=skillTop){
+                $('#skills').addClass('active');
+            }else{
+                $('#skills').removeClass('active');
+            }
+
+       })
+       
     </script>
 </body>
 </html>
